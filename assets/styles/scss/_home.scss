@@ -1,0 +1,98 @@
+// Definición de mixins para dispositivos
+@mixin tablet {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: 480px) {
+    @content;
+  }
+}
+
+// Estilos para .home
+.home {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  background: url(/assets/multimedia/banner-4.jpeg) no-repeat center center;
+  background-size: cover;
+
+  @include tablet {
+    background-size: contain; 
+  }
+
+  @include mobile {
+    background-size: cover;
+  }
+
+  .homeContent {
+    margin-left: 0;
+    width: 90%;
+
+    @include tablet {
+      width: 80%; 
+    }
+
+    @include mobile {
+      width: 70%; 
+    }
+  }
+}
+
+// Estilos para .homeContent y sus hijos
+.home .homeContent {
+  width: 50%;
+  float: left;
+  text-align: center;
+  padding: 4rem;
+
+  h2 {
+    font-size: 4rem;
+    font-weight: bolder;
+    margin-bottom: 2rem;
+    line-height: 7rem;
+    color: var(--black);
+    text-shadow: var(--box-shadow);
+  }
+
+  p {
+    font-size: 1.8rem;
+    line-height: 2;
+    margin-bottom: 2rem;
+  }
+
+  .home-btn {
+    height: 3rem;
+
+    button {
+      font-size: 1.2rem;
+      background-color: var(--black);
+      color: var(--white);
+      border-radius: .7rem;
+      padding: .7rem 2.4rem;
+      cursor: pointer;
+      transition: font-size 0.3s ease;
+
+      &:hover {
+        font-size: 2rem;
+      }
+    }
+  }
+}
+
+// Estilos para .btn-primary
+.btn-primary {
+  height: 2rem;
+  font-size: 1rem;
+  background-color: #eff;
+  color: var(--white);
+  border-radius: .7rem;
+  padding: .7rem 2.4rem;
+  cursor: pointer;
+}
+
+
+
+
